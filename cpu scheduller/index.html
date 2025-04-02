@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligent CPU Scheduling Simulator</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider round">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon"></i>
+                    </div>
+                </label>
+            </div>
+            <h1><i class="fas fa-microchip"></i> CPU Scheduling Simulator</h1>
+            <div class="mode-indicator">Light Mode</div>
+        </div>
+        
+        <div class="main-content">
+            <div class="left-panel">
+                <div class="card">
+                    <h2><i class="fas fa-project-diagram"></i> Algorithm Selection</h2>
+                    <div class="algorithm-select">
+                        <select id="algorithm">
+                            <option value="fcfs">First Come First Served (FCFS)</option>
+                            <option value="sjf">Shortest Job First (Non-preemptive)</option>
+                            <option value="srtf">Shortest Remaining Time First (Preemptive)</option>
+                            <option value="rr">Round Robin</option>
+                            <option value="priority-np">Priority (Non-preemptive)</option>
+                            <option value="priority-p">Priority (Preemptive)</option>
+                        </select>
+                        <div id="timeQuantumInput" class="time-quantum">
+                            <label for="timeQuantum">Time Quantum:</label>
+                            <input type="number" id="timeQuantum" min="1" placeholder="Enter time quantum" value="2">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h2><i class="fas fa-tasks"></i> Process Inputs</h2>
+                    <div class="process-inputs">
+                        <div class="input-group">
+                            <label><i class="fas fa-clock"></i> Arrival Times (space-separated)</label>
+                            <textarea id="arrivalInput" placeholder="Example: 0 1 2 3" rows="1">0 1 2 3</textarea>
+                        </div>
+                        <div class="input-group">
+                            <label><i class="fas fa-hourglass-half"></i> Burst Times (space-separated)</label>
+                            <textarea id="burstInput" placeholder="Example: 3 6 4 5" rows="1">3 6 4 5</textarea>
+                        </div>
+                        <div class="input-group" id="priorityInput">
+                            <label><i class="fas fa-sort-numeric-down"></i> Priority Values (space-separated)</label>
+                            <textarea id="priorityValues" placeholder="Example: 2 1 4 3" rows="1">2 1 4 3</textarea>
+                        </div>
+                        <div class="button-group">
+                            <button id="processInputBtn" class="btn-primary">
+                                <i class="fas fa-cog"></i> Process Input
+                            </button>
+                            <button id="calculateBtn" class="btn-success">
+                                <i class="fas fa-calculator"></i> Calculate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2><i class="fas fa-list-ol"></i> Processes</h2>
+                    <div class="table-container">
+                        <table id="processTable">
+                            <thead>
+                                <tr>
+                                    <th>Process</th>
+                                    <th>Arrival Time</th>
+                                    <th>Burst Time</th>
+                                    <th class="priority-column">Priority</th>
+                                </tr>
+                            </thead>
+                            <tbody id="processTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <div class="card">
+                    <div class="gantt-section">
+                        <div class="section-header">
+                            <h2><i class="fas fa-chart-bar"></i> Gantt Chart</h2>
+                            <div class="algorithm-name">
+                                <span>Algorithm:</span>
+                                <div id="currentAlgorithm">No algorithm selected</div>
+                            </div>
+                        </div>
+                        <div id="ganttChart" class="gantt-chart"></div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div id="liveVisualization">
+                        <div class="section-header">
+                            <h2><i class="fas fa-play-circle"></i> Real-time Visualization</h2>
+                            <div class="simulation-controls">
+                                <button id="startBtn" class="btn-primary">
+                                    <i class="fas fa-play"></i> Start
+                                </button>
+                                <button id="pauseBtn" class="btn-warning">
+                                    <i class="fas fa-pause"></i> Pause
+                                </button>
+                                <button id="resetBtn" class="btn-danger">
+                                    <i class="fas fa-redo"></i> Reset
+                                </button>
+                            </div>
+                        </div>
+                        <div id="ganttContainer">
+                            <div id="ganttChartLive" class="gantt-chart-live"></div>
+                        </div>
+                        <div id="timeCounter" class="time-counter">
+                            <i class="fas fa-clock"></i> Elapsed Time: <span id="currentTime">0</span>s
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="results">
+                        <div class="section-header">
+                            <h2><i class="fas fa-chart-pie"></i> Results</h2>
+                        </div>
+                        <div id="resultTable" class="result-table-container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <a href="https://github.com/AdithyaVNair" class="github-logo" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-github"></i>
+    </a>
+    
+    <script src="script.js"></script>
+</body>
+</html>
