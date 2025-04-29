@@ -19,7 +19,5 @@ A simple CPU Scheduling Simulator that demonstrates various CPU scheduling algor
 
 ## 🧰 Technologies Used
 
-- Programming Language: HTML, CSS, JAVASCRIPT
+- Programming Language: Html, Css, Javascript
 - Platform: Cross-platform (Windows/Linux/Mac)
-
-
