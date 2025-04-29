@@ -19,12 +19,7 @@ A simple CPU Scheduling Simulator that demonstrates various CPU scheduling algor
 
 ## 🧰 Technologies Used
 
-- Programming Language: C++ / Python / Java *(replace with your actual language)*
+- Programming Language: HTML, CSS, JAVASCRIPT
 - Platform: Cross-platform (Windows/Linux/Mac)
 
-## 🧪 How to Run
 
-### If using C++
-```bash
-g++ main.cpp -o scheduler
-./scheduler
