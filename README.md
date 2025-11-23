@@ -1,4 +1,4 @@
-# CPU Scheduling Simulator
+# Latency Lens
 
 A simple CPU Scheduling Simulator that demonstrates various CPU scheduling algorithms used in operating systems.
 
